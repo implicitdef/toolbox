@@ -3,6 +3,7 @@ package com.github.implicitdef.toolbox
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.util.control.Exception._
+import scala.concurrent.duration._
 
 object Pimp {
 
@@ -13,7 +14,7 @@ object Pimp {
       o.getOrElse(err(msg))
   }
   implicit class RichFuture[A](f: Future[A]){
-    def await(atMost: Duration = Duration.Inf): A =
+    def await(atMost: Duration = 1.minute): A =
       Await.result(f, atMost)
     def thenSideEffect(block: A => Unit)(implicit e: ExecutionContext): Future[A] =
       f.map { v =>
