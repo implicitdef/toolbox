@@ -3,6 +3,6 @@
 
 _build.sbt_ :
 
-    resolvers += "implicitdef-maven" at "http://dl.bintray.com/implicitdef/maven"
+    resolvers += Resolver.jcenterRepo
     libraryDependencies += "com.github.implicitdef" %% "toolbox" % "0.0.1"
 
