@@ -5,7 +5,8 @@ import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.util.control.Exception._
 import scala.concurrent.duration._
 
-object Pimp {
+object Pimp extends Pimp
+trait Pimp {
 
   def err(s: String) = throw new RuntimeException(s)
 
